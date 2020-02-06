@@ -1,0 +1,42 @@
+summary(veri)
+attach(veri)
+shapiro.test(okuyarak)
+shapiro.test(dinleyerek)
+shapiro.test(yazarak)
+
+#WİLCOXON TEST VE İŞARET TESTLERİ#
+install.packages("DescTools")
+
+library(DescTools)
+okuyarak -> C(91,88,69,68,87,83,90 )
+SignTest(x=okuyarak,mu=85,alternative="greater")
+
+
+install.packages("stats")
+library(stats)
+dinleyerek= c(82,87,68,83,88,84)
+wilcox.test(dinleyerek,mu=90,alternative="two.sided")
+
+#MANN-WHİTNEY#
+wilcox.test(okuyarak,dinleyerek) 
+wilcox.test(okuyarak,yazarak)
+
+attach(veri)
+kruskal.test(veri)
+
+summary(veri1)
+attach(veri1)
+shapiro.test(hafta1)
+shapiro.test(hafta2)
+shapiro.test(ay1)
+
+library(stats)
+wilcox.test(hafta1,hafta2) 
+
+wilcox.test(hafta2,ay1)
+
+
+friedman.test(veri~sure|blok,data=veriii)
+
+
+
